@@ -511,6 +511,7 @@ if(WIN32) # see options at: https://cmake.org/cmake/help/latest/cpack_gen/nsis.h
 	install(TARGETS sunshinesvc RUNTIME DESTINATION "tools" COMPONENT sunshinesvc)
 
 	# scripts
+	install(DIRECTORY "${SUNSHINE_SOURCE_ASSETS_DIR}/windows/misc/docs/" DESTINATION "scripts" COMPONENT application)
 	install(DIRECTORY "${SUNSHINE_SOURCE_ASSETS_DIR}/windows/misc/firewall/" DESTINATION "scripts" COMPONENT firewall)
 	install(DIRECTORY "${SUNSHINE_SOURCE_ASSETS_DIR}/windows/misc/service/" DESTINATION "scripts" COMPONENT service)
 
@@ -532,6 +533,7 @@ if(WIN32) # see options at: https://cmake.org/cmake/help/latest/cpack_gen/nsis.h
     	ExecWait 'icacls \\\"$INSTDIR\\\" /grant:r Users:\\\(OI\\\)\\\(CI\\\)\\\(F\\\)'
     	ExecWait '\\\"$INSTDIR\\\\scripts\\\\add-firewall-rule.bat\\\"'
     	ExecWait '\\\"$INSTDIR\\\\scripts\\\\install-service.bat\\\"'
+    	ExecWait '\\\"$INSTDIR\\\\scripts\\\\open-docs.bat\\\"'
     	")
 
 	# Extra uninstall commands
@@ -594,17 +596,20 @@ if(WIN32) # see options at: https://cmake.org/cmake/help/latest/cpack_gen/nsis.h
 	set(CPACK_COMPONENT_SUNSHINESVC_DISPLAY_NAME "sunshinesvc")
 	set(CPACK_COMPONENT_SUNSHINESVC_DESCRIPTION "CLI tool providing ability to enable/disable the Sunshine service.")
 	set(CPACK_COMPONENT_SUNSHINESVC_GROUP "tools")
+	set(CPACK_COMPONENT_SUNSHINESVC_DISABLED true)
 
 	# service scripts
 	set(CPACK_COMPONENT_SERVICE_DISPLAY_NAME "service-scripts")
 	set(CPACK_COMPONENT_SERVICE_DESCRIPTION "Scripts to enable/disable the service.")
 	set(CPACK_COMPONENT_SERVICE_GROUP "scripts")
+	set(CPACK_COMPONENT_SERVICE_DISABLED true)
 	set(CPACK_COMPONENT_SERVICE_DEPENDS sunshinesvc)
 
 	# firewall scripts
 	set(CPACK_COMPONENT_FIREWALL_DISPLAY_NAME "firewall-scripts")
 	set(CPACK_COMPONENT_FIREWALL_DESCRIPTION "Scripts to enable or disable firewall rules.")
 	set(CPACK_COMPONENT_FIREWALL_GROUP "scripts")
+	set(CPACK_COMPONENT_FIREWALL_DISABLED true)
 endif()
 if(APPLE)
 	# TODO: bundle doesn't produce a valid .app use cpack -G DragNDrop
