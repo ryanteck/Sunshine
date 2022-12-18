@@ -68,9 +68,9 @@ System Requirements
 |            +-----------------------------------------------------------+
 |            | AMD: todo                                                 |
 +------------+-----------------------------------------------------------+
-| Network    | Host: CAT6 ethernet or better                             |
+| Network    | Host: 1 Gigabit wired ethernet or better                  |
 |            +-----------------------------------------------------------+
-|            | Client: CAT6 ethernet or better                           |
+|            | Client: 1 Gigabit wired ethernet or better                |
 +------------+-----------------------------------------------------------+
 
 **HDR Suggestions**
@@ -84,9 +84,9 @@ System Requirements
 |            +-----------------------------------------------------------+
 |            | AMD: todo                                                 |
 +------------+-----------------------------------------------------------+
-| Network    | Host: CAT6 ethernet or better                             |
+| Network    | Host: 1 Gigabit wired ethernet or better                  |
 |            +-----------------------------------------------------------+
-|            | Client: CAT6 ethernet or better                           |
+|            | Client: 1 Gigabit wired ethernet or better                |
 +------------+-----------------------------------------------------------+
 
 Integrations
